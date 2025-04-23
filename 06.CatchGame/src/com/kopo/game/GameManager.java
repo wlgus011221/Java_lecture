@@ -26,6 +26,12 @@ public class GameManager {
 				break;
 			}
 			
+			// 숫자인지 판별. 숫자가 아닌 다른 문자 (예:ㅂ)를 입력하는 경우 방지
+			if(!input.matches("\\d")) {	// 숫자를 의미하는 정규표현식 [0-9]와 같은 의미
+				System.out.println("1, 2, 3, q중에 입력해주세요.");
+				continue;
+			} 
+						
 			int inputNum = Integer.parseInt(input);
 			
 			if(inputNum == 1) {

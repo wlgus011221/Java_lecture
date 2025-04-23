@@ -15,12 +15,12 @@ public class Cat4 extends Base {
 		Random random = new Random();
 		int randNumber = random.nextInt(2);
 		if(randNumber==1) {
+			System.out.println("[탐색 성공]");
 			System.out.println(this.name + "을(를) 발견했습니다!!");
 			return true;
 		}
-		System.out.println("희미한 발자국만 남아있고 고양이는 사라졌네요."
-
-);
+		System.out.println("[탐색 실패]");
+		System.out.println("희미한 발자국만 남아있고 고양이는 사라졌네요.");
 		return false;
 	}
 	
@@ -34,6 +34,7 @@ public class Cat4 extends Base {
 			this.isCatch = true;
 			return true;
 		}
+		System.out.println("[포획 실패..]");
 		System.out.println(this.name + "이(가) 도망쳤다...");
 		return false;
 	}

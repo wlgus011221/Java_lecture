@@ -42,8 +42,21 @@ public class GameMethod {
 			if (input.equals("q")) {
 				break;
 			}
+			
+			// 숫자인지 판별. 숫자가 아닌 다른 문자 (예:ㅂ)를 입력하는 경우 방지
+			if(!input.matches("\\d")) {	// 숫자를 의미하는 정규표현식 [0-9]와 같은 의미
+				System.out.println("1~10 중에 입력해주세요.");
+				continue;
+			}
+						
 			int inputNum = Integer.parseInt(input);
-			this.printCat(inputNum);
+			
+			if(inputNum < 11 && inputNum > 0) {
+				this.printCat(inputNum);
+			} else {
+				System.out.println("1~10 중에 입력해주세요.");
+			}
+			
 		}
 		System.out.println();
 	}
@@ -51,11 +64,11 @@ public class GameMethod {
 	// 상세조회
 	public void printCat(int num) {
 		System.out.println();
-		System.out.print("-----------" + this.b[num - 1].name + "의 상세조회" + "-----------");
+		System.out.println("-----------" + this.b[num - 1].name + "의 상세조회" + "-----------");
 		if (this.b[num - 1].isCatch == true) {
-			System.out.println("( O )");
+			System.out.println("포획여부 : O");
 		} else {
-			System.out.println("( X )");
+			System.out.println("포획여부 : X");
 		}
 		System.out.println("성별 : " + this.b[num - 1].gender);
 		System.out.println("나이 : " + this.b[num - 1].age);
