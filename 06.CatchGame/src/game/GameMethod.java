@@ -171,15 +171,19 @@ public class GameMethod {
 			// item을 다 소진하면 더 이상 아이템 사용 여부를 묻지 않음
 			if(this.itemCount > 0) {
 				System.out.println("츄르를 사용하시겠습니까? y/n (남은개수 : " + this.itemCount + ")");
-				String input = Config.scanner.nextLine();
-				if(input.equals("y")) {
-					isItem = true;
-					isCatch = this.cat[num].catchCat(isItem);
-					this.itemCount--;
-				} else if(input.equals("n")) {
-					isCatch = this.cat[num].catchCat(isItem);
-				} else {
-					System.out.println("y와 n 중에서 입력해주세요.");
+				while(true){
+					String input = Config.scanner.nextLine();
+					if(input.equals("y")) {
+						isItem = true;
+						isCatch = this.cat[num].catchCat(isItem);
+						this.itemCount--;
+						break;
+					} else if(input.equals("n")) {
+						isCatch = this.cat[num].catchCat(isItem);
+						break;
+					} else {
+						System.out.println("y와 n 중에서 입력해주세요.");
+					}
 				}
 			} else {
 				isCatch = this.cat[num].catchCat(isItem);
