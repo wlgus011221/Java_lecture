@@ -1,4 +1,4 @@
-package com.kopo.game;
+package game;
 
 /***
  * MainClass 클래스
@@ -13,6 +13,7 @@ public class MainClass {
 	 * @param args 명령행 매개변수 (사용하지 않음)
 	 */
 	public static void main(String[] args) {
+		// GameManager 객체를 생성하고 게임을 시작합니다.
 		GameManager g = new GameManager();
 		g.run();
 	}
